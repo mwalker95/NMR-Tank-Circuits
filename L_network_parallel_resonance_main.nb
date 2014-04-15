@@ -1,0 +1,87 @@
+
+
+(*Just run this entire block in mathematica in a single input.  
+It should output the capacitances and sliders for you to adjust the other parameters.*)
+
+
+
+Clear[w, L, r, f, Z, Zform, ImZ, Rez, T, M, Tminus, Tplus, Mminus, \
+Mplus, Ma, ALL, tunem, tunep, matchm, matchp]
+
+Z = 1/(I*w*M) + 1/(1/(I*w*L + r) + I*w*T);
+
+Zform = ComplexExpand[Z];
+
+ReZ = r/((r^2 + 
+       L^2 w^2) (r^2/(r^2 + 
+           L^2 w^2)^2 + (T w - (L w)/(r^2 + L^2 w^2))^2));
+ImZ = (-(1/(M w)) - (T w)/(r^2/(r^2 + 
+           L^2 w^2)^2 + (T w - (L w)/(r^2 + 
+             L^2 w^2))^2) + (L w)/((r^2 + 
+         L^2 w^2) (r^2/(r^2 + 
+             L^2 w^2)^2 + (T w - (L w)/(r^2 + L^2 w^2))^2)));
+
+Solve[ReZ == Z0, T];
+Solve[ImZ == 0, M];
+Tminus = Dynamic[(L w^2 Z0 - 
+     Sqrt[r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2])/(r^2 w^2 Z0 + 
+     L^2 w^4 Z0)]
+Tplus = Dynamic[(L w^2 Z0 + 
+     Sqrt[r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2])/(r^2 w^2 Z0 + 
+     L^2 w^4 Z0)]
+Ma[T_] := (-1 + 2 L T w^2 - r^2 T^2 w^2 - 
+     L^2 T^2 w^4)/(w^2 (-L + r^2 T + L^2 T w^2));
+Mminus = Dynamic[(-1 + (
+     2 L w^2 (L w^2 Z0 - Sqrt[
+        r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2]))/(
+     r^2 w^2 Z0 + L^2 w^4 Z0) - (
+     r^2 w^2 (L w^2 Z0 - Sqrt[
+        r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2])^2)/(r^2 w^2 Z0 + 
+       L^2 w^4 Z0)^2 - (
+     L^2 w^4 (L w^2 Z0 - Sqrt[
+        r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2])^2)/(r^2 w^2 Z0 + 
+       L^2 w^4 Z0)^2)/(w^2 (-L + (
+       r^2 (L w^2 Z0 - Sqrt[
+          r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2]))/(
+       r^2 w^2 Z0 + L^2 w^4 Z0) + (
+       L^2 w^2 (L w^2 Z0 - Sqrt[
+          r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2]))/(
+       r^2 w^2 Z0 + L^2 w^4 Z0)))]
+Mplus = Dynamic[(-1 + (
+     2 L w^2 (L w^2 Z0 + Sqrt[
+        r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2]))/(
+     r^2 w^2 Z0 + L^2 w^4 Z0) - (
+     r^2 w^2 (L w^2 Z0 + Sqrt[
+        r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2])^2)/(r^2 w^2 Z0 + 
+       L^2 w^4 Z0)^2 - (
+     L^2 w^4 (L w^2 Z0 + Sqrt[
+        r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2])^2)/(r^2 w^2 Z0 + 
+       L^2 w^4 Z0)^2)/(w^2 (-L + (
+       r^2 (L w^2 Z0 + Sqrt[
+          r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2]))/(
+       r^2 w^2 Z0 + L^2 w^4 Z0) + (
+       L^2 w^2 (L w^2 Z0 + Sqrt[
+          r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2]))/(
+       r^2 w^2 Z0 + L^2 w^4 Z0))
+    
+    )]
+
+f = Dynamic[w/(6.28319)];
+{Slider[Dynamic[w], {10^6, 10^8, 10^5}, ImageSize -> 800], 
+ "w =  " Dynamic[w],
+ 
+ Slider[Dynamic[L], {1*10^-6, 50*10^-6, 1.0*10^-7}, ImageSize -> 800],
+  "L =   " Dynamic[L], "f  = " Dynamic[f]
+  
+  Slider[Dynamic[r], {.001, 300, .001}, ImageSize -> 800], 
+ "r =   " Dynamic[r],
+ 
+ Slider[Dynamic[Z0], {1, 300, 1}, ImageSize -> 800], 
+ "Z0 =   " Dynamic[Z0]}
+r = 12.5
+Z0 = 50
+L = 10*10^-6
+w = 8*10^6
+{"Tune cap (F) =   ", Tminus,
+ "Match cap (F)=   ", Mminus
+ }
