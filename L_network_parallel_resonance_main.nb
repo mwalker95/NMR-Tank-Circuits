@@ -4,6 +4,8 @@ You may copy and paste all of this text including the comments.
 Just run this entire block in mathematica in a single input.  
 It should output the capacitances and sliders for you to adjust the other parameters.
 
+##### 2014 www.altoidnerd.com #####
+
 *)
 
 
