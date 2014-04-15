@@ -95,10 +95,10 @@ Mplus = Dynamic[(-1 + (
     )];
 
 f = Dynamic[w/(6.28319)];
-{Slider[Dynamic[w], {10^6, 10^8, 10^5}, ImageSize -> 800], 
+{Slider[Dynamic[w], {10^6, 10^9, 10^5}, ImageSize -> 800], 
  "w =  " Dynamic[w],
  
- Slider[Dynamic[L], {1*10^-6, 50*10^-6, 1.0*10^-7}, ImageSize -> 800],
+ Slider[Dynamic[L], {.2*10^-6, 50*10^-6, 1.0*10^-7}, ImageSize -> 800],
   "L =   " Dynamic[L], "f  = " Dynamic[f]
   
   Slider[Dynamic[r], {.001, 300, .001}, ImageSize -> 800], 
@@ -108,8 +108,8 @@ f = Dynamic[w/(6.28319)];
  "Z0 =   " Dynamic[Z0]}
 r = 12.5;
 Z0 = 50;
-L = 10*10^-6;
-w = 10^7;
+L = 7*10^-6;
+w = 4*10^7;
 {"Tune cap (F) =   ", Tminus,
  "Match cap (F)=   ", Mminus
  }
