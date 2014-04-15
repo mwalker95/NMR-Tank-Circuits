@@ -1,5 +1,4 @@
 
-
 (*Just run this entire block in mathematica in a single input.  
 It should output the capacitances and sliders for you to adjust the other parameters.*)
 
@@ -78,10 +77,10 @@ f = Dynamic[w/(6.28319)];
  
  Slider[Dynamic[Z0], {1, 300, 1}, ImageSize -> 800], 
  "Z0 =   " Dynamic[Z0]}
-r = 12.5
-Z0 = 50
-L = 10*10^-6
-w = 8*10^6
+r = 12.5;
+Z0 = 50;
+L = 10*10^-6;
+w = 8*10^6;
 {"Tune cap (F) =   ", Tminus,
  "Match cap (F)=   ", Mminus
  }
