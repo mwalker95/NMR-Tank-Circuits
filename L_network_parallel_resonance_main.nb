@@ -29,7 +29,7 @@ Looking at the output of
 Zform = ComplexExpand[Z];
 
 (*
-Will yield the real and imaginary parts.  The rest comes from enforcing Re{z} = Z0 and Im{Z} = 0
+Will yield the real and imaginary parts.  The rest comes from enforcing Re{Z} = Z0 and Im{Z} = 0
 *)
 
 ReZ = r/((r^2 + 
