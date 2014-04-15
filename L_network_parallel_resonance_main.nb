@@ -23,10 +23,10 @@ Solve[ReZ == Z0, T];
 Solve[ImZ == 0, M];
 Tminus = Dynamic[(L w^2 Z0 - 
      Sqrt[r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2])/(r^2 w^2 Z0 + 
-     L^2 w^4 Z0)]
+     L^2 w^4 Z0)];
 Tplus = Dynamic[(L w^2 Z0 + 
      Sqrt[r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2])/(r^2 w^2 Z0 + 
-     L^2 w^4 Z0)]
+     L^2 w^4 Z0)];
 Ma[T_] := (-1 + 2 L T w^2 - r^2 T^2 w^2 - 
      L^2 T^2 w^4)/(w^2 (-L + r^2 T + L^2 T w^2));
 Mminus = Dynamic[(-1 + (
@@ -44,7 +44,7 @@ Mminus = Dynamic[(-1 + (
        r^2 w^2 Z0 + L^2 w^4 Z0) + (
        L^2 w^2 (L w^2 Z0 - Sqrt[
           r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2]))/(
-       r^2 w^2 Z0 + L^2 w^4 Z0)))]
+       r^2 w^2 Z0 + L^2 w^4 Z0)))];
 Mplus = Dynamic[(-1 + (
      2 L w^2 (L w^2 Z0 + Sqrt[
         r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2]))/(
@@ -62,7 +62,7 @@ Mplus = Dynamic[(-1 + (
           r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2]))/(
        r^2 w^2 Z0 + L^2 w^4 Z0))
     
-    )]
+    )];
 
 f = Dynamic[w/(6.28319)];
 {Slider[Dynamic[w], {10^6, 10^8, 10^5}, ImageSize -> 800], 
