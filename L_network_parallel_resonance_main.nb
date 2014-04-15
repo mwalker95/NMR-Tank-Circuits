@@ -6,9 +6,22 @@ It should output the capacitances and sliders for you to adjust the other parame
 Clear[w, L, r, f, Z, Zform, ImZ, ReZ, T, M, Tminus, Tplus, Mminus, \
 Mplus, Ma, ALL, tunem, tunep, matchm, matchp]
 
+(*
+The general form for the impedance looking into the tank while r is in series with L is 
+*)
+
 Z = 1/(I*w*M) + 1/(1/(I*w*L + r) + I*w*T);
 
+
+(*
+Looking at the output of 
+*)
+
 Zform = ComplexExpand[Z];
+
+(*
+Will yield the real and imaginary parts.  The rest comes from enforcing Re{z} = Z0 and Im{Z} = 0
+*)
 
 ReZ = r/((r^2 + 
        L^2 w^2) (r^2/(r^2 + 
