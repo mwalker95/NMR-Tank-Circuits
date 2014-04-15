@@ -44,7 +44,8 @@ Solve[ImZ == 0, M];
 
 (*
 The resulting quadratic for the capacitance T requires us to discard the value with a plus sign before the square root.
-These solutions lead to negative values of capacitance for M (the matching cap).
+These solutions lead to negative values of capacitance for M (the matching cap). I have kept the variables defined,
+but excluded them in the output.
 
 *)
 
