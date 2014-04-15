@@ -34,6 +34,13 @@ ImZ = (-(1/(M w)) - (T w)/(r^2/(r^2 +
 
 Solve[ReZ == Z0, T];
 Solve[ImZ == 0, M];
+
+(*
+The resulting quadratic for the capacitance T requires us to discard the value with a plus sign before the square root.
+These solutions lead to negative values of capacitance for M (the matching cap).
+
+*)
+
 Tminus = Dynamic[(L w^2 Z0 - 
      Sqrt[r^3 w^2 Z0 + L^2 r w^4 Z0 - r^2 w^2 Z0^2])/(r^2 w^2 Z0 + 
      L^2 w^4 Z0)];
