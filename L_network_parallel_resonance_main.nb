@@ -16,7 +16,11 @@ Mplus, Ma, ALL, tunem, tunep, matchm, matchp]
 (*
 To avoid subscripts, we denote the tuning capacitance as T and the matching capacitance as M.  The coil inductance is L.
 
-The general form for the impedance looking into the tank while r is in series with L is 
+For the NMR probe topology shown in the image 
+
+http://altoidnerd.files.wordpress.com/2014/04/img42.gif
+
+the general form for the impedance looking into the tank while r is in series with L is 
 *)
 
 Z = 1/(I*w*M) + 1/(1/(I*w*L + r) + I*w*T);
