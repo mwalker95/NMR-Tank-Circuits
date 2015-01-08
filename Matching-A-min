@@ -1,4 +1,4 @@
-Clear[w, Z0, L, r, f, Z, Zform, ImZ, ReZ, CTminus, CTplus, CMminus, CMplus, CM, CT, rSlide, LSlide, wSlide, controls, outs, disp, slideSize, zoomSlide, Null]
+Clear[w, Z0, L, r, f, Z, Zform, ImZ, ReZ, CTminus, CTplus, CMminus, CMplus, CM, CT, rSlide, LSlide, wSlide, controls, outs, disp, slideSize, zoomSlide, Null];
 Z = 1/(I*CM*w) + 1/(I*CT*w + 1/(r + I*L*w)); 
 Zform = ComplexExpand[Z]; 
 ReZ = r/((L^2*w^2 + r^2)*((CT*w - (L*w)/(L^2*w^2 + r^2))^2 + r^2/(L^2*w^2 + r^2)^2)); 
