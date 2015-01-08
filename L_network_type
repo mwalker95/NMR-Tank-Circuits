@@ -1,34 +1,12 @@
-(*You may copy and paste all of this text including the comments.Just \
-run this entire block in mathematica in a single input.It should \
-output the capacitances and sliders for you to adjust the other \
-parameters.##### 2014 www.altoidnerd.com #####*)
-
-(*To avoid subscripts,we denote the tuning capacitance as T and the \
-matching capacitance as M.The coil inductance is L.For the NMR probe \
-topology shown in the image \
-http://altoidnerd.files.wordpress.com/2014/04/img42.gif the general \
-form for the impedance looking into the tank while r is in series \
-with L is*)
-
-Clear[w, Z0, L, r, f, Z, Zform, ImZ, ReZ, CTminus, CTplus, CMminus, CMplus, CM, CT, rSlide, LSlide, wSlide, controls, outs, disp, slideSize, zoomSlide,fVal]
-
-
+Clear[w, Z0, L, r, f, Z, Zform, ImZ, ReZ, CTminus, CTplus, CMminus, CMplus, CM, CT, rSlide, LSlide, wSlide, controls, outs, disp, slideSize, zoomSlide, Null]
 Z = 1/(I*CM*w) + 1/(I*CT*w + 1/(r + I*L*w)); 
-
 Zform = ComplexExpand[Z]; 
-
 ReZ = r/((L^2*w^2 + r^2)*((CT*w - (L*w)/(L^2*w^2 + r^2))^2 + r^2/(L^2*w^2 + r^2)^2)); 
-
 ImZ = -(1/(CM*w)) - (CT*w)/((CT*w - (L*w)/(L^2*w^2 + r^2))^2 + r^2/(L^2*w^2 + r^2)^2) + (L*w)/((L^2*w^2 + r^2)*((CT*w - (L*w)/(L^2*w^2 + r^2))^2 + r^2/(L^2*w^2 + r^2)^2)); 
-
 Solve[ReZ == Z0, CT]; 
-
 Solve[ImZ == 0, CM]; 
-
 CTminus = Dynamic[(1.*(L*w^2*Z0 - Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2]))/(L^2*w^4*Z0 + r^2*w^2*Z0)]; 
-
 CTplus = Dynamic[(Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2] + L*w^2*Z0)/(L^2*w^4*Z0 + r^2*w^2*Z0)]; 
-
 CMminus = Dynamic[(1.*((2*L*w^2*(L*w^2*Z0 - Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2]))/(L^2*w^4*Z0 + r^2*w^2*Z0) - (r^2*w^2*(L*w^2*Z0 - Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2])^2)/
         (L^2*w^4*Z0 + r^2*w^2*Z0)^2 - (L^2*w^4*(L*w^2*Z0 - Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2])^2)/(L^2*w^4*Z0 + r^2*w^2*Z0)^2 - 1))/
      (w^2*((r^2*(L*w^2*Z0 - Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2]))/(L^2*w^4*Z0 + r^2*w^2*Z0) + (L^2*w^2*(L*w^2*Z0 - Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2]))/
@@ -38,21 +16,13 @@ CMplus = Dynamic[((2*L*w^2*(Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2] + L*w
      (w^2*((r^2*(Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2] + L*w^2*Z0))/(L^2*w^4*Z0 + r^2*w^2*Z0) + (L^2*w^2*(Sqrt[L^2*r*w^4*Z0 + r^3*w^2*Z0 - r^2*w^2*Z0^2] + L*w^2*Z0))/
         (L^2*w^4*Z0 + r^2*w^2*Z0) - L))]; 
 f = Dynamic[w/6.28319]; 
-
 Q = Dynamic[((1.*L)*w)/r]; 
-
-fVal = {"f  = "*Dynamic[f]}; 
-
+fcheck = {"f  = "*Dynamic[f]}; 
 zoomSlide = {Slider[Dynamic[slideSize], {20, 4000, 10}], "slideSize = "*Dynamic[slideSize]}; 
-
-slideSize = 1700
-
+slideSize = 1700;
 wSlide = {Dynamic[w], {10^6, 0.2001*10^9, 0.001*10^6}, Dynamic[ImageSize -> Dynamic[slideSize]], "w =  "*Dynamic[w]}; 
-
 LSlide = {Dynamic[Slider[Dynamic[L], {0.2/10^6, 50/10^6, (1.*1.001)/10^7}, ImageSize -> slideSize], "L =   "*Dynamic[L]]}; 
-
 rSlide = {Slider[Dynamic[r], {0.001, 20, 0.001}, ImageSize -> Dynamic[slideSize]], "r =   "*Dynamic[r]}; 
-
 zoSlide = {Slider[Dynamic[Z0], {1, 300, 1}, ImageSize -> Dynamic[slideSize]], "Z0 =   "*Dynamic[Z0]}; 
 controls = {zoomSlide, wslide, Lslide, rslide, Z0slide}; outs = {"tunecap=", Tminus, "matchcap=", Mminus, "Q=", Q}; r = 7.; Z0 = 50; 
 L = 26./10^6; 
