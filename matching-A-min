@@ -71,7 +71,7 @@ controlSliders={
     zoomSlide,wSlide,LSlide,rSlide,zoSlide
 }; (*controls and outputs*)
 outs={
-    "tunecap=",Tminus,"matchcap=",Mminus,"Q=",Q
+    "tunecap=",CTminus,"matchcap=",CMminus,"Q=",Q
 };
 
 r=7.00; (*decale initial values*)
