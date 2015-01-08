@@ -1,6 +1,4 @@
-(* 
-
-The goal is to characterize Cm and Ct for all values of r (coil losses), 
+(* The goal is to characterize Cm and Ct for all values of r (coil losses), 
 L (coil inductance) and f (frequency of operation) for the matching network
 shown here: 
     http://www.phys.ufl.edu/~majewski/nqr/matching-A.pdf
@@ -13,8 +11,8 @@ Uncomment this and removes semicolons obtain expressions for Cm and Ct
 by enforcing ImZ=0 and ReZ = Zo *)
 (*Z=1/(I*CM*w)+1/(I*CT*w+1/(r+I*L*w));Zform=ComplexExpand[Z];ReZ=r/((L^2*w^2+r^2)*((CT*w-(L*w)/(L^2*w^2+r^2))^2+r^2/(L^2*w^2+r^2)^2));ImZ=-(1/(CM*w))-(CT*w)/((CT*w-(L*w)/(L^2*w^2+r^2))^2+r^2/(L^2*w^2+r^2)^2)+(L*w)/((L^2*w^2+r^2)*((CT*w-(L*w)/(L^2*w^2+r^2))^2+r^2/(L^2*w^2+r^2)^2));
 Solve[ReZ\[Equal]Z0,CT];
-Solve[ImZ\[Equal]0,CM];
-*)
+Solve[ImZ\[Equal]0,CM];*)
+
 CTminus=
     Dynamic[
         (1.*(L*w^2*Z0-Sqrt[L^2*r*w^4*Z0+r^3*w^2*Z0-r^2*w^2*Z0^2]))/(L^2*w^4*Z0+r^2*w^2*Z0)
