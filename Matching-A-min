@@ -58,7 +58,9 @@ rSlide={
 };
 
 zoSlide={
-    Slider[Dynamic[Z0],{1,300,1},ImageSize->Dynamic[slideSize]],"Z0 =   "Dynamic[Z0]
+    Slider[Dynamic[Z0],{1,300,1},ImageSize->Dynamic[slideSize]
+        ],
+    "Z0 =   "Dynamic[Z0]
 };
 
 controlSliders={
