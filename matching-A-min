@@ -68,7 +68,7 @@ zoSlide={
 };
 
 controlSliders={
-    zoomSlide,wslide,Lslide,rslide,Z0slide
+    zoomSlide,wSlide,LSlide,rSlide,Z0Slide
 }; (*controls and outputs*)
 outs={
     "tunecap=",Tminus,"matchcap=",Mminus,"Q=",Q
