@@ -1,4 +1,4 @@
-(* The goal is to characterize Cm and Ct for all values of r (coil losses), 
+(*The goal is to characterize Cm and Ct for all values of r (coil losses), 
 L (coil inductance) and f (frequency of operation) for the matching network
 shown here: 
     http://www.phys.ufl.edu/~majewski/nqr/matching-A.pdf
@@ -68,7 +68,7 @@ zoSlide={
 };
 
 controlSliders={
-    zoomSlide,wSlide,LSlide,rSlide,Z0Slide
+    zoomSlide,wSlide,LSlide,rSlide,zoSlide
 }; (*controls and outputs*)
 outs={
     "tunecap=",Tminus,"matchcap=",Mminus,"Q=",Q
