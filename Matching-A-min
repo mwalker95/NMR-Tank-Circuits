@@ -49,7 +49,7 @@ wSlide={
 
 LSlide={
     Slider[
-        Dynamic[L],{0.2/10^6,50/10^6,(1.*1.001)/10^7},ImageSize->slideSize
+        Dynamic[L],{0.2/10^6,50/10^6,(1.*1.000001)/10^7},ImageSize->slideSize
         ],
     "L =   "Dynamic[L]
 };
