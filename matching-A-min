@@ -4,14 +4,16 @@ shown here:
     http://www.phys.ufl.edu/~majewski/nqr/matching-A.pdf
 *)
 
-Clear[w,Z0,L,r,f,Z,Zform,ImZ,ReZ,CTminus,CTplus,CMminus,CMplus,CM,CT,rSlide,LSlide,wSlide,controlSliders,outs,disp,slideSize,zoomSlide];
+Clear[
+w,Z0,L,r,f,Z,Zform,ImZ,ReZ,CTminus,CTplus,CMminus,CMplus,CM,CT,rSlide,LSlide,wSlide,controlSliders,outs,disp,slideSize,zoomSlide
+];
 
 (* This is how I arrived at expressions for CTminus and CMminus.
 Uncomment this and removes semicolons obtain expressions for Cm and Ct
 by enforcing ImZ=0 and ReZ = Zo *)
 (*Z=1/(I*CM*w)+1/(I*CT*w+1/(r+I*L*w));Zform=ComplexExpand[Z];ReZ=r/((L^2*w^2+r^2)*((CT*w-(L*w)/(L^2*w^2+r^2))^2+r^2/(L^2*w^2+r^2)^2));ImZ=-(1/(CM*w))-(CT*w)/((CT*w-(L*w)/(L^2*w^2+r^2))^2+r^2/(L^2*w^2+r^2)^2)+(L*w)/((L^2*w^2+r^2)*((CT*w-(L*w)/(L^2*w^2+r^2))^2+r^2/(L^2*w^2+r^2)^2));
-Solve[ReZ\[Equal]Z0,CT];
-Solve[ImZ\[Equal]0,CM];*)
+Solve[ReZ==Z0,CT];
+Solve[ImZ==0,CM];*)
 
 CTminus=
     Dynamic[
@@ -38,25 +40,25 @@ zoomSlide={
     "slideSize = "Dynamic[slideSize]
 }; (*a slider to control slideSize*)
 
-slideSize=1700; (* decalreinitial slider size for controls*)
+slideSize=1400; (* decalreinitial slider size for controls*)
 
 wSlide={
     Slider[
-        Dynamic[w],{10^6,0.2001*10^9,0.001*10^6},ImageSize->slideSize
+        Dynamic[w],{10^6,0.2001*10^9,0.001*10^6},ImageSize->Dynamic[slideSize]
     ],
     "w =  "Dynamic[w]
 };
 
 LSlide={
     Slider[
-        Dynamic[L],{0.2/10^6,50/10^6,(1.*1.000001)/10^7},ImageSize->slideSize
+        Dynamic[L],{0.2/10^6,50/10^6,(1.*1.000001)/10^7},ImageSize->Dynamic[slideSize]
         ],
     "L =   "Dynamic[L]
 };
 
 rSlide={
     Slider[
-        Dynamic[r],{0.001,20,0.001},ImageSize->slideSize
+        Dynamic[r],{0.001,20,0.001},ImageSize->Dynamic[slideSize]
         ],
     "r =   "Dynamic[r]
 };
@@ -78,5 +80,6 @@ r=7.00; (*decale initial values*)
 Z0=50.00;
 L=26.00/10^6;
 w=2.00*10^7;
+
 disp=Flatten[{controlSliders,outs}]; (* this is the display *)
 disp 
