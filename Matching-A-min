@@ -34,27 +34,31 @@ Q=Dynamic[((1.*L)*w)/r]; (*declarations of Q, dynamic frequency output, slider o
 zoomSlide={
     Slider[
         Dynamic[slideSize],{20,4000,10}
-    ],"slideSize = "Dynamic[slideSize]
+        ],
+    "slideSize = "Dynamic[slideSize]
 }; (*a slider to control slideSize*)
 
 slideSize=1700; (* decalreinitial slider size for controls*)
 
 wSlide={
     Slider[
-        Dynamic[w],{10^6,0.2001*10^9,0.001*10^6},ImageSize->slideSize],
-"w =  "Dynamic[w]
+        Dynamic[w],{10^6,0.2001*10^9,0.001*10^6},ImageSize->slideSize
+    ],
+    "w =  "Dynamic[w]
 };
 
 LSlide={
     Slider[
-        Dynamic[L],{0.2/10^6,50/10^6,(1.*1.001)/10^7},ImageSize->slideSize],
-"L =   "Dynamic[L]
+        Dynamic[L],{0.2/10^6,50/10^6,(1.*1.001)/10^7},ImageSize->slideSize
+        ],
+    "L =   "Dynamic[L]
 };
 
 rSlide={
     Slider[
-        Dynamic[r],{0.001,20,0.001},ImageSize->slideSize],
-"r =   "Dynamic[r]
+        Dynamic[r],{0.001,20,0.001},ImageSize->slideSize
+        ],
+    "r =   "Dynamic[r]
 };
 
 zoSlide={
