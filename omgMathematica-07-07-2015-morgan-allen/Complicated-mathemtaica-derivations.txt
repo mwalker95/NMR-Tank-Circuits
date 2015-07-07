@@ -1,0 +1,89 @@
+In[87]:= Clear[cMatch, cTune, zParallel, zSeries, Z, L, r, \[Omega], f, zGood, reZ, imZ, z0];
+In[95]:= zParallel = ( 1/(I*\[Omega]*L+r) + 1/(-I/(\[Omega]*cTune))  )^(-1)
+
+Out[95]= 1/(I cTune \[Omega]+1/(r+I L \[Omega]))
+In[96]:= Z = zParallel + -I / (\[Omega]*cMatch)
+
+Out[96]= -(I/(cMatch \[Omega]))+1/(I cTune \[Omega]+1/(r+I L \[Omega]))
+In[97]:= zGood = ComplexExpand[Z]
+
+Out[97]= r/((r^2+L^2 \[Omega]^2) (r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2))+I (-(1/(cMatch \[Omega]))-(cTune \[Omega])/(r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2)+(L \[Omega])/((r^2+L^2 \[Omega]^2) (r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2)))
+reZ = r/((r^2+L^2 \[Omega]^2) (r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2))
+
+imZ = (-(1/(cMatch \[Omega]))-(cTune \[Omega])/(r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2)+(L \[Omega])/((r^2+L^2 \[Omega]^2) (r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2)))
+
+(* but hey - since we have to enforce imZ \[Equal] 0, it is fruitful to express imZ as a rational function with a common denominator. 
+*)
+
+
+
+
+Out[108]= r/((r^2+L^2 \[Omega]^2) (r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2))
+In[122]:= -(1/(cMatch \[Omega]))-(cTune \[Omega])/(r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2)+(L \[Omega])/((r^2+L^2 \[Omega]^2) (r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2))
+
+Solve[imZ == 0, cMatch]
+Out[122]= -(1/(cMatch \[Omega]))-(cTune \[Omega])/(r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2)+(L \[Omega])/((r^2+L^2 \[Omega]^2) (r^2/(r^2+L^2 \[Omega]^2)^2+(cTune \[Omega]-(L \[Omega])/(r^2+L^2 \[Omega]^2))^2))
+{{cMatch->(-1+2 cTune L \[Omega]^2-cTune^2 r^2 \[Omega]^2-cTune^2 L^2 \[Omega]^4)/(\[Omega]^2 (-L+cTune r^2+cTune L^2 \[Omega]^2))}}  (* this expression: true when tuned and matched *)
+
+
+In[124]:= 
+(*use built in Together[] to obtain an alternative expression for imZ ...*)
+
+otherImZ = Together[imZ]
+
+
+(* 
+\[Equal] imZ all the time.  when imZ \[Equal] 0 , the numeator has to also vanish ... 
+*)
+
+
+Out[125]= (-1+cMatch L \[Omega]^2+2 cTune L \[Omega]^2-cMatch cTune r^2 \[Omega]^2-cTune^2 r^2 \[Omega]^2-cMatch cTune L^2 \[Omega]^4-cTune^2 L^2 \[Omega]^4)/(cMatch \[Omega] (1-2 cTune L \[Omega]^2+cTune^2 r^2 \[Omega]^2+cTune^2 L^2 \[Omega]^4))
+
+imZNumerator= -1+cMatch L \[Omega]^2+2 cTune L \[Omega]^2-cMatch cTune r^2 \[Omega]^2-cTune^2 r^2 \[Omega]^2-cMatch cTune L^2 \[Omega]^4-cTune^2 L^2 \[Omega]^4;
+imZDenominator = cMatch \[Omega] (1-2 cTune L \[Omega]^2+cTune^2 r^2 \[Omega]^2+cTune^2 L^2 \[Omega]^4);
+
+In[130]:= 
+
+
+(* try 
+*)
+Solve[imZNumerator == 0, cTune]
+
+Out[130]= {{cTune->(1/(2 (r^2 \[Omega]^2+L^2 \[Omega]^4)))(2 L \[Omega]^2-cMatch r^2 \[Omega]^2-cMatch L^2 \[Omega]^4-Sqrt[-4 r^2 \[Omega]^2+cMatch^2 r^4 \[Omega]^4+2 cMatch^2 L^2 r^2 \[Omega]^6+cMatch^2 L^4 \[Omega]^8])},{cTune->(1/(2 (r^2 \[Omega]^2+L^2 \[Omega]^4)))(2 L \[Omega]^2-cMatch r^2 \[Omega]^2-cMatch L^2 \[Omega]^4+Sqrt[-4 r^2 \[Omega]^2+cMatch^2 r^4 \[Omega]^4+2 cMatch^2 L^2 r^2 \[Omega]^6+cMatch^2 L^4 \[Omega]^8])}}
+
+In[102]:= (* 
+	      equation 1: enforce real part of impedance is the characteristic impedance of the transmission line z0 = 50 ohms 
+*)
+
+Solve[reZ == z0, cTune]
+
+(*
+r amnd L are measured properties of the coil, \[Omega] is known by experimenter, and z0 is 50 ohms in our case.
+*)
+Out[102]= {{cTune->(L z0 \[Omega]^2-\[Sqrt](r^3 z0 \[Omega]^2-r^2 z0^2 \[Omega]^2+L^2 r z0 \[Omega]^4))/(r^2 z0 \[Omega]^2+L^2 z0 \[Omega]^4)},{cTune->(L z0 \[Omega]^2+\[Sqrt](r^3 z0 \[Omega]^2-r^2 z0^2 \[Omega]^2+L^2 r z0 \[Omega]^4))/(r^2 z0 \[Omega]^2+L^2 z0 \[Omega]^4)}}
+
+(*
+the quadratic yields two possible values for cTune, one of which will result in a contradiction
+*)
+
+cTunePlus = (L z0 \[Omega]^2+Sqrt[r^3 z0 \[Omega]^2-r^2 z0^2 \[Omega]^2+L^2 r z0 \[Omega]^4])/(r^2 z0 \[Omega]^2+L^2 z0 \[Omega]^4)
+
+
+cTuneMinus =  (L z0 \[Omega]^2-Sqrt[r^3 z0 \[Omega]^2-r^2 z0^2 \[Omega]^2+L^2 r z0 \[Omega]^4])/(r^2 z0 \[Omega]^2+L^2 z0 \[Omega]^4) 
+
+(* equation 2: no imaginary part.
+*)
+Solve[imZ == 0, cMatch]
+(* its okay to stop at this point technically, because cTune is determined by equation 1.
+*)
+
+In[84]:= {{cMatch->(-1+2 cTune L \[Omega]^2-cTune^2 r^2 \[Omega]^2-cTune^2 L^2 \[Omega]^4)/(\[Omega]^2 (-L+cTune r^2+cTune L^2 \[Omega]^2))}}
+
+
+
+Out[84]= {{cMatch->(-1+2 cTune L \[Omega]^2-cTune^2 r^2 \[Omega]^2-cTune^2 L^2 \[Omega]^4)/(\[Omega]^2 (-L+cTune r^2+cTune L^2 \[Omega]^2))}}
+
+(* none of the following is actually necessary to solve our problem in a numerical, straight forward way.  
+*)
+
+CMatch[ctune_]:=(-1+2 ctune L \[Omega]^2-ctune^2 r^2 \[Omega]^2-ctune^2 L^2 \[Omega]^4)/(\[Omega]^2 (-L+ctune r^2+ctune L^2 \[Omega]^2))
