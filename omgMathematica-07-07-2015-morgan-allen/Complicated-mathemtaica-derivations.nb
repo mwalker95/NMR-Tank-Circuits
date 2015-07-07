@@ -1,0 +1,1154 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     38443,       1145]
+NotebookOptionsPosition[     36522,       1080]
+NotebookOutlinePosition[     37038,       1101]
+CellTagsIndexPosition[     36995,       1098]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{
+   "cMatch", ",", " ", "cTune", ",", " ", "zParallel", ",", " ", "zSeries", 
+    ",", " ", "Z", ",", " ", "L", ",", " ", "r", ",", " ", "\[Omega]", ",", 
+    " ", "f", ",", " ", "zGood", ",", " ", "reZ", ",", " ", "imZ", ",", " ", 
+    "z0"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.6452836222381873`*^9, 3.6452836232678337`*^9}, {
+  3.6452837371373425`*^9, 3.645283807418501*^9}, {3.6452838678400116`*^9, 
+  3.6452838707729435`*^9}, {3.64528400709186*^9, 3.64528400954117*^9}, {
+  3.6452840688394303`*^9, 3.6452840758129435`*^9}, {3.645284237717008*^9, 
+  3.645284238325435*^9}, {3.6452846527200356`*^9, 3.6452846687887564`*^9}, {
+  3.645284789491372*^9, 3.645284825809802*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"zParallel", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"(", " ", 
+     RowBox[{
+      RowBox[{"1", "/", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"I", "*", "\[Omega]", "*", "L"}], "+", "r"}], ")"}]}], " ", 
+      "+", " ", 
+      RowBox[{"1", "/", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "I"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"\[Omega]", "*", "cTune"}], ")"}]}], ")"}]}]}], "  ", ")"}],
+     "^", 
+    RowBox[{"(", 
+     RowBox[{"-", "1"}], ")"}]}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.645283810101821*^9, 3.645283847980321*^9}, {
+   3.645283904891674*^9, 3.6452839652039804`*^9}, {3.6452846950915365`*^9, 
+   3.645284695918374*^9}, {3.645284915685435*^9, 3.6452849174171124`*^9}, 
+   3.645284997729516*^9, {3.645286368157411*^9, 3.645286372432003*^9}}],
+
+Cell[BoxData[
+ FractionBox["1", 
+  RowBox[{
+   RowBox[{"\[ImaginaryI]", " ", "cTune", " ", "\[Omega]"}], "+", 
+   FractionBox["1", 
+    RowBox[{"r", "+", 
+     RowBox[{"\[ImaginaryI]", " ", "L", " ", "\[Omega]"}]}]]}]]], "Output",
+ CellChangeTimes->{3.6452866359278345`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Z", " ", "=", " ", 
+   RowBox[{"zParallel", " ", "+", " ", 
+    RowBox[{
+     RowBox[{"-", "I"}], " ", "/", " ", 
+     RowBox[{"(", 
+      RowBox[{"\[Omega]", "*", "cMatch"}], ")"}]}]}]}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.64528398169392*^9, 3.6452839918655767`*^9}, {
+   3.645284688320833*^9, 3.6452846895688887`*^9}, {3.645284906387418*^9, 
+   3.645284908321904*^9}, 3.6452849969338803`*^9, {3.6452863669405565`*^9, 
+   3.645286375130924*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox["\[ImaginaryI]", 
+    RowBox[{"cMatch", " ", "\[Omega]"}]]}], "+", 
+  FractionBox["1", 
+   RowBox[{
+    RowBox[{"\[ImaginaryI]", " ", "cTune", " ", "\[Omega]"}], "+", 
+    FractionBox["1", 
+     RowBox[{"r", "+", 
+      RowBox[{"\[ImaginaryI]", " ", "L", " ", "\[Omega]"}]}]]}]]}]], "Output",
+ CellChangeTimes->{3.6452866378155193`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"zGood", " ", "=", " ", 
+   RowBox[{"ComplexExpand", "[", "Z", "]"}]}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6452840003367567`*^9, 3.645284024502241*^9}, {
+   3.6452847851387773`*^9, 3.6452847853883886`*^9}, 3.645284993205313*^9, {
+   3.6452863663165283`*^9, 3.645286375973362*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"r", "/", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["r", "2"], "+", 
+       RowBox[{
+        SuperscriptBox["L", "2"], " ", 
+        SuperscriptBox["\[Omega]", "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        SuperscriptBox["r", "2"], 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["r", "2"], "+", 
+           RowBox[{
+            SuperscriptBox["L", "2"], " ", 
+            SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+          FractionBox[
+           RowBox[{"L", " ", "\[Omega]"}], 
+           RowBox[{
+            SuperscriptBox["r", "2"], "+", 
+            RowBox[{
+             SuperscriptBox["L", "2"], " ", 
+             SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}], ")"}]}], 
+    ")"}]}], "+", 
+  RowBox[{"\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"cMatch", " ", "\[Omega]"}]]}], "-", 
+     FractionBox[
+      RowBox[{"cTune", " ", "\[Omega]"}], 
+      RowBox[{
+       FractionBox[
+        SuperscriptBox["r", "2"], 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["r", "2"], "+", 
+           RowBox[{
+            SuperscriptBox["L", "2"], " ", 
+            SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+          FractionBox[
+           RowBox[{"L", " ", "\[Omega]"}], 
+           RowBox[{
+            SuperscriptBox["r", "2"], "+", 
+            RowBox[{
+             SuperscriptBox["L", "2"], " ", 
+             SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}]], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"L", " ", "\[Omega]"}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["r", "2"], "+", 
+          RowBox[{
+           SuperscriptBox["L", "2"], " ", 
+           SuperscriptBox["\[Omega]", "2"]}]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox[
+           SuperscriptBox["r", "2"], 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["r", "2"], "+", 
+              RowBox[{
+               SuperscriptBox["L", "2"], " ", 
+               SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+             FractionBox[
+              RowBox[{"L", " ", "\[Omega]"}], 
+              RowBox[{
+               SuperscriptBox["r", "2"], "+", 
+               RowBox[{
+                SuperscriptBox["L", "2"], " ", 
+                SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}], 
+         ")"}]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{3.645286639999617*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"reZ", " ", "=", " ", 
+   RowBox[{"r", "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["r", "2"], "+", 
+        RowBox[{
+         SuperscriptBox["L", "2"], " ", 
+         SuperscriptBox["\[Omega]", "2"]}]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox["r", "2"], 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["r", "2"], "+", 
+            RowBox[{
+             SuperscriptBox["L", "2"], " ", 
+             SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+           FractionBox[
+            RowBox[{"L", " ", "\[Omega]"}], 
+            RowBox[{
+             SuperscriptBox["r", "2"], "+", 
+             RowBox[{
+              SuperscriptBox["L", "2"], " ", 
+              SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}], ")"}]}], 
+     ")"}]}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"imZ", " ", "=", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"cMatch", " ", "\[Omega]"}]]}], "-", 
+     FractionBox[
+      RowBox[{"cTune", " ", "\[Omega]"}], 
+      RowBox[{
+       FractionBox[
+        SuperscriptBox["r", "2"], 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["r", "2"], "+", 
+           RowBox[{
+            SuperscriptBox["L", "2"], " ", 
+            SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+          FractionBox[
+           RowBox[{"L", " ", "\[Omega]"}], 
+           RowBox[{
+            SuperscriptBox["r", "2"], "+", 
+            RowBox[{
+             SuperscriptBox["L", "2"], " ", 
+             SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}]], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"L", " ", "\[Omega]"}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["r", "2"], "+", 
+          RowBox[{
+           SuperscriptBox["L", "2"], " ", 
+           SuperscriptBox["\[Omega]", "2"]}]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox[
+           SuperscriptBox["r", "2"], 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["r", "2"], "+", 
+              RowBox[{
+               SuperscriptBox["L", "2"], " ", 
+               SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+             FractionBox[
+              RowBox[{"L", " ", "\[Omega]"}], 
+              RowBox[{
+               SuperscriptBox["r", "2"], "+", 
+               RowBox[{
+                SuperscriptBox["L", "2"], " ", 
+                SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}], 
+         ")"}]}], ")"}]}]}], ")"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"but", " ", "hey"}], " ", "-", " ", 
+      RowBox[{
+      "since", " ", "we", " ", "have", " ", "to", " ", "enforce", " ", 
+       "imZ"}]}], " ", "\[Equal]", " ", "0"}], ",", " ", 
+    RowBox[{
+    "it", " ", "is", " ", "fruitful", " ", "to", " ", "express", " ", "imZ", 
+     " ", "as", " ", "a", " ", "rational", " ", "function", " ", "with", " ", 
+     "a", " ", "common", " ", 
+     RowBox[{"denominator", "."}]}]}], " ", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.645284392718769*^9, 3.6452843932335925`*^9}, 
+   3.645284627322096*^9, {3.645284959585805*^9, 3.64528498868111*^9}, {
+   3.645286360528669*^9, 3.64528637772064*^9}, {3.645286486122111*^9, 
+   3.6452865619337144`*^9}, {3.645286626645418*^9, 3.6452866282834916`*^9}, {
+   3.6452868679570456`*^9, 3.6452869812337284`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"r", "/", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["r", "2"], "+", 
+      RowBox[{
+       SuperscriptBox["L", "2"], " ", 
+       SuperscriptBox["\[Omega]", "2"]}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["r", "2"], 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["r", "2"], "+", 
+          RowBox[{
+           SuperscriptBox["L", "2"], " ", 
+           SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+         FractionBox[
+          RowBox[{"L", " ", "\[Omega]"}], 
+          RowBox[{
+           SuperscriptBox["r", "2"], "+", 
+           RowBox[{
+            SuperscriptBox["L", "2"], " ", 
+            SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}], ")"}]}], 
+   ")"}]}]], "Output",
+ CellChangeTimes->{
+  3.645286586411213*^9, 3.645286642152514*^9, 3.6452867223245115`*^9, {
+   3.645286968409953*^9, 3.6452869740574064`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox["1", 
+     RowBox[{"cMatch", " ", "\[Omega]"}]]}], "-", 
+   FractionBox[
+    RowBox[{"cTune", " ", "\[Omega]"}], 
+    RowBox[{
+     FractionBox[
+      SuperscriptBox["r", "2"], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["r", "2"], "+", 
+         RowBox[{
+          SuperscriptBox["L", "2"], " ", 
+          SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+        FractionBox[
+         RowBox[{"L", " ", "\[Omega]"}], 
+         RowBox[{
+          SuperscriptBox["r", "2"], "+", 
+          RowBox[{
+           SuperscriptBox["L", "2"], " ", 
+           SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}]], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"L", " ", "\[Omega]"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["r", "2"], "+", 
+        RowBox[{
+         SuperscriptBox["L", "2"], " ", 
+         SuperscriptBox["\[Omega]", "2"]}]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox["r", "2"], 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["r", "2"], "+", 
+            RowBox[{
+             SuperscriptBox["L", "2"], " ", 
+             SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+           FractionBox[
+            RowBox[{"L", " ", "\[Omega]"}], 
+            RowBox[{
+             SuperscriptBox["r", "2"], "+", 
+             RowBox[{
+              SuperscriptBox["L", "2"], " ", 
+              SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}], ")"}]}], 
+     ")"}]}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"imZ", " ", "\[Equal]", " ", "0"}], ",", " ", "cMatch"}], "]"}]}], \
+"Input",
+ CellChangeTimes->{{3.645287245384781*^9, 3.6452872546515965`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox["1", 
+    RowBox[{"cMatch", " ", "\[Omega]"}]]}], "-", 
+  FractionBox[
+   RowBox[{"cTune", " ", "\[Omega]"}], 
+   RowBox[{
+    FractionBox[
+     SuperscriptBox["r", "2"], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["r", "2"], "+", 
+        RowBox[{
+         SuperscriptBox["L", "2"], " ", 
+         SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+       FractionBox[
+        RowBox[{"L", " ", "\[Omega]"}], 
+        RowBox[{
+         SuperscriptBox["r", "2"], "+", 
+         RowBox[{
+          SuperscriptBox["L", "2"], " ", 
+          SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}]], "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"L", " ", "\[Omega]"}], ")"}], "/", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["r", "2"], "+", 
+       RowBox[{
+        SuperscriptBox["L", "2"], " ", 
+        SuperscriptBox["\[Omega]", "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        SuperscriptBox["r", "2"], 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["r", "2"], "+", 
+           RowBox[{
+            SuperscriptBox["L", "2"], " ", 
+            SuperscriptBox["\[Omega]", "2"]}]}], ")"}], "2"]], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"cTune", " ", "\[Omega]"}], "-", 
+          FractionBox[
+           RowBox[{"L", " ", "\[Omega]"}], 
+           RowBox[{
+            SuperscriptBox["r", "2"], "+", 
+            RowBox[{
+             SuperscriptBox["L", "2"], " ", 
+             SuperscriptBox["\[Omega]", "2"]}]}]]}], ")"}], "2"]}], ")"}]}], 
+    ")"}]}]}]], "Output",
+ CellChangeTimes->{3.6452872550104127`*^9, 3.645287334386774*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{"cMatch", "\[Rule]", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       RowBox[{"2", " ", "cTune", " ", "L", " ", 
+        SuperscriptBox["\[Omega]", "2"]}], "-", 
+       RowBox[{
+        SuperscriptBox["cTune", "2"], " ", 
+        SuperscriptBox["r", "2"], " ", 
+        SuperscriptBox["\[Omega]", "2"]}], "-", 
+       RowBox[{
+        SuperscriptBox["cTune", "2"], " ", 
+        SuperscriptBox["L", "2"], " ", 
+        SuperscriptBox["\[Omega]", "4"]}]}], 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "L"}], "+", 
+         RowBox[{"cTune", " ", 
+          SuperscriptBox["r", "2"]}], "+", 
+         RowBox[{"cTune", " ", 
+          SuperscriptBox["L", "2"], " ", 
+          SuperscriptBox["\[Omega]", "2"]}]}], ")"}]}]]}], "}"}], "}"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"this", " ", 
+    RowBox[{"expression", ":", " ", 
+     RowBox[{
+     "true", " ", "when", " ", "tuned", " ", "and", " ", "matched"}]}]}], " ",
+    "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6452873470701437`*^9, 3.645287392140566*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.64528733696089*^9, 3.6452873406738567`*^9}},
+ NumberMarks->False],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.645287343294774*^9, 3.6452873433259754`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"use", " ", "built", " ", "in", " ", 
+     RowBox[{"Together", "[", "]"}], " ", "to", " ", "obtain", " ", "an", " ",
+      "alternative", " ", "expression", " ", "for", " ", "imZ"}], " ", 
+    "..."}], "*)"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6452843982726183`*^9, 3.6452844222508945`*^9}, {
+  3.645284630442236*^9, 3.6452846308322535`*^9}, {3.6452869761479*^9, 
+  3.645286986085546*^9}, {3.645287427179738*^9, 3.6452874295354433`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"otherImZ", " ", "=", " ", 
+   RowBox[{"Together", "[", "imZ", "]"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Equal]", " ", 
+     RowBox[{"imZ", " ", "all", " ", "the", " ", 
+      RowBox[{"time", ".", "  ", "when"}], " ", "imZ"}], " ", "\[Equal]", " ",
+      "0"}], " ", ",", " ", 
+    RowBox[{
+     RowBox[{
+     "the", " ", "numeator", " ", "has", " ", "to", " ", "also", " ", 
+      "vanish"}], " ", "..."}]}], " ", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6452869914521866`*^9, 3.6452870151184487`*^9}, {
+  3.645287046007835*^9, 3.645287099237423*^9}, {3.6452874016413918`*^9, 
+  3.645287439800704*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    RowBox[{"cMatch", " ", "L", " ", 
+     SuperscriptBox["\[Omega]", "2"]}], "+", 
+    RowBox[{"2", " ", "cTune", " ", "L", " ", 
+     SuperscriptBox["\[Omega]", "2"]}], "-", 
+    RowBox[{"cMatch", " ", "cTune", " ", 
+     SuperscriptBox["r", "2"], " ", 
+     SuperscriptBox["\[Omega]", "2"]}], "-", 
+    RowBox[{
+     SuperscriptBox["cTune", "2"], " ", 
+     SuperscriptBox["r", "2"], " ", 
+     SuperscriptBox["\[Omega]", "2"]}], "-", 
+    RowBox[{"cMatch", " ", "cTune", " ", 
+     SuperscriptBox["L", "2"], " ", 
+     SuperscriptBox["\[Omega]", "4"]}], "-", 
+    RowBox[{
+     SuperscriptBox["cTune", "2"], " ", 
+     SuperscriptBox["L", "2"], " ", 
+     SuperscriptBox["\[Omega]", "4"]}]}], ")"}], "/", 
+  RowBox[{"(", 
+   RowBox[{"cMatch", " ", "\[Omega]", " ", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"2", " ", "cTune", " ", "L", " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["cTune", "2"], " ", 
+       SuperscriptBox["r", "2"], " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["cTune", "2"], " ", 
+       SuperscriptBox["L", "2"], " ", 
+       SuperscriptBox["\[Omega]", "4"]}]}], ")"}]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.6452871961957736`*^9, 3.6452874316415377`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"imZNumerator", "=", " ", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"cMatch", " ", "L", " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "+", 
+      RowBox[{"2", " ", "cTune", " ", "L", " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "-", 
+      RowBox[{"cMatch", " ", "cTune", " ", 
+       SuperscriptBox["r", "2"], " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "-", 
+      RowBox[{
+       SuperscriptBox["cTune", "2"], " ", 
+       SuperscriptBox["r", "2"], " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "-", 
+      RowBox[{"cMatch", " ", "cTune", " ", 
+       SuperscriptBox["L", "2"], " ", 
+       SuperscriptBox["\[Omega]", "4"]}], "-", 
+      RowBox[{
+       SuperscriptBox["cTune", "2"], " ", 
+       SuperscriptBox["L", "2"], " ", 
+       SuperscriptBox["\[Omega]", "4"]}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"imZDenominator", " ", "=", " ", 
+     RowBox[{"cMatch", " ", "\[Omega]", " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"2", " ", "cTune", " ", "L", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["cTune", "2"], " ", 
+         SuperscriptBox["r", "2"], " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["cTune", "2"], " ", 
+         SuperscriptBox["L", "2"], " ", 
+         SuperscriptBox["\[Omega]", "4"]}]}], ")"}]}]}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.6452871033248067`*^9, 3.6452872137309604`*^9}, {
+  3.6452874423748198`*^9, 3.645287446992627*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", "try", " ", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"imZNumerator", " ", "\[Equal]", " ", "0"}], ",", " ", "cTune"}],
+     "]"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.645287453388914*^9, 3.6452874645122128`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"cTune", "\[Rule]", 
+     RowBox[{
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["r", "2"], " ", 
+           SuperscriptBox["\[Omega]", "2"]}], "+", 
+          RowBox[{
+           SuperscriptBox["L", "2"], " ", 
+           SuperscriptBox["\[Omega]", "4"]}]}], ")"}]}]], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", "L", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "-", 
+        RowBox[{"cMatch", " ", 
+         SuperscriptBox["r", "2"], " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "-", 
+        RowBox[{"cMatch", " ", 
+         SuperscriptBox["L", "2"], " ", 
+         SuperscriptBox["\[Omega]", "4"]}], "-", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "4"}], " ", 
+           SuperscriptBox["r", "2"], " ", 
+           SuperscriptBox["\[Omega]", "2"]}], "+", 
+          RowBox[{
+           SuperscriptBox["cMatch", "2"], " ", 
+           SuperscriptBox["r", "4"], " ", 
+           SuperscriptBox["\[Omega]", "4"]}], "+", 
+          RowBox[{"2", " ", 
+           SuperscriptBox["cMatch", "2"], " ", 
+           SuperscriptBox["L", "2"], " ", 
+           SuperscriptBox["r", "2"], " ", 
+           SuperscriptBox["\[Omega]", "6"]}], "+", 
+          RowBox[{
+           SuperscriptBox["cMatch", "2"], " ", 
+           SuperscriptBox["L", "4"], " ", 
+           SuperscriptBox["\[Omega]", "8"]}]}]]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"cTune", "\[Rule]", 
+     RowBox[{
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["r", "2"], " ", 
+           SuperscriptBox["\[Omega]", "2"]}], "+", 
+          RowBox[{
+           SuperscriptBox["L", "2"], " ", 
+           SuperscriptBox["\[Omega]", "4"]}]}], ")"}]}]], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", "L", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "-", 
+        RowBox[{"cMatch", " ", 
+         SuperscriptBox["r", "2"], " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "-", 
+        RowBox[{"cMatch", " ", 
+         SuperscriptBox["L", "2"], " ", 
+         SuperscriptBox["\[Omega]", "4"]}], "+", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "4"}], " ", 
+           SuperscriptBox["r", "2"], " ", 
+           SuperscriptBox["\[Omega]", "2"]}], "+", 
+          RowBox[{
+           SuperscriptBox["cMatch", "2"], " ", 
+           SuperscriptBox["r", "4"], " ", 
+           SuperscriptBox["\[Omega]", "4"]}], "+", 
+          RowBox[{"2", " ", 
+           SuperscriptBox["cMatch", "2"], " ", 
+           SuperscriptBox["L", "2"], " ", 
+           SuperscriptBox["r", "2"], " ", 
+           SuperscriptBox["\[Omega]", "6"]}], "+", 
+          RowBox[{
+           SuperscriptBox["cMatch", "2"], " ", 
+           SuperscriptBox["L", "4"], " ", 
+           SuperscriptBox["\[Omega]", "8"]}]}]]}], ")"}]}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.6452874592235756`*^9, 3.6452874653702517`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6452875634986544`*^9, 3.6452875684440765`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "\[IndentingNewLine]", "\t      ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"equation", " ", "1"}], ":", " ", 
+     RowBox[{
+     "enforce", " ", "real", " ", "part", " ", "of", " ", "impedance", " ", 
+      "is", " ", "the", " ", "characteristic", " ", "impedance", " ", "of", 
+      " ", "the", " ", "transmission", " ", "line", " ", "z0"}]}], " ", "=", 
+    " ", 
+    RowBox[{"50", " ", "ohms"}]}], " ", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"reZ", " ", "\[Equal]", " ", "z0"}], ",", " ", "cTune"}], "]"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+     "r", " ", "amnd", " ", "L", " ", "are", " ", "measured", " ", 
+      "properties", " ", "of", " ", "the", " ", "coil"}], ",", " ", 
+     RowBox[{
+     "\[Omega]", " ", "is", " ", "known", " ", "by", " ", "experimenter"}], 
+     ",", " ", 
+     RowBox[{
+     "and", " ", "z0", " ", "is", " ", "50", " ", "ohms", " ", "in", " ", 
+      "our", " ", 
+      RowBox[{"case", "."}]}]}], "\[IndentingNewLine]", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.645285019352086*^9, 3.645285045327252*^9}, {
+  3.6452856253534794`*^9, 3.645285835674319*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"cTune", "\[Rule]", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"L", " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "-", 
+        RowBox[{"\[Sqrt]", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox["r", "3"], " ", "z0", " ", 
+            SuperscriptBox["\[Omega]", "2"]}], "-", 
+           RowBox[{
+            SuperscriptBox["r", "2"], " ", 
+            SuperscriptBox["z0", "2"], " ", 
+            SuperscriptBox["\[Omega]", "2"]}], "+", 
+           RowBox[{
+            SuperscriptBox["L", "2"], " ", "r", " ", "z0", " ", 
+            SuperscriptBox["\[Omega]", "4"]}]}], ")"}]}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["r", "2"], " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["L", "2"], " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "4"]}]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"cTune", "\[Rule]", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"L", " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "+", 
+        RowBox[{"\[Sqrt]", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox["r", "3"], " ", "z0", " ", 
+            SuperscriptBox["\[Omega]", "2"]}], "-", 
+           RowBox[{
+            SuperscriptBox["r", "2"], " ", 
+            SuperscriptBox["z0", "2"], " ", 
+            SuperscriptBox["\[Omega]", "2"]}], "+", 
+           RowBox[{
+            SuperscriptBox["L", "2"], " ", "r", " ", "z0", " ", 
+            SuperscriptBox["\[Omega]", "4"]}]}], ")"}]}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["r", "2"], " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["L", "2"], " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "4"]}]}], ")"}]}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6452850476829576`*^9, 3.645286727113926*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "the", " ", "quadratic", " ", "yields", " ", "two", " ", "possible", " ", 
+     "values", " ", "for", " ", "cTune"}], ",", " ", 
+    RowBox[{
+    "one", " ", "of", " ", "which", " ", "will", " ", "result", " ", "in", 
+     " ", "a", " ", "contradiction"}]}], "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"cTunePlus", " ", "=", " ", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"L", " ", "z0", " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "+", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["r", "3"], " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "-", 
+        RowBox[{
+         SuperscriptBox["r", "2"], " ", 
+         SuperscriptBox["z0", "2"], " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["L", "2"], " ", "r", " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "4"]}]}]]}], 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["r", "2"], " ", "z0", " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["L", "2"], " ", "z0", " ", 
+       SuperscriptBox["\[Omega]", "4"]}]}]]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"cTuneMinus", " ", "=", "  ", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"L", " ", "z0", " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "-", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["r", "3"], " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "-", 
+        RowBox[{
+         SuperscriptBox["r", "2"], " ", 
+         SuperscriptBox["z0", "2"], " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["L", "2"], " ", "r", " ", "z0", " ", 
+         SuperscriptBox["\[Omega]", "4"]}]}]]}], 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["r", "2"], " ", "z0", " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["L", "2"], " ", "z0", " ", 
+       SuperscriptBox["\[Omega]", "4"]}]}]], " "}]}]}]], "Input",
+ CellChangeTimes->{{3.64528505264398*^9, 3.6452851046723146`*^9}, {
+  3.64528584506594*^9, 3.6452858829132385`*^9}, {3.6452863838673162`*^9, 
+  3.645286388079505*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"equation", " ", "2"}], ":", " ", 
+    RowBox[{"no", " ", "imaginary", " ", 
+     RowBox[{"part", "."}]}]}], "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"imZ", " ", "\[Equal]", " ", "0"}], ",", " ", "cMatch"}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "its", " ", "okay", " ", "to", " ", "stop", " ", "at", " ", "this", " ", 
+      "point", " ", "technically"}], ",", " ", 
+     RowBox[{
+     "because", " ", "cTune", " ", "is", " ", "determined", " ", "by", " ", 
+      "equation", " ", "1."}]}], "\[IndentingNewLine]", "*)"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.6452854428876925`*^9, 3.6452854756335616`*^9}, {
+  3.6452855914843597`*^9, 3.6452856199088354`*^9}, {3.6452858894967337`*^9, 
+  3.6452859315250196`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{"cMatch", "\[Rule]", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{"2", " ", "cTune", " ", "L", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "-", 
+        RowBox[{
+         SuperscriptBox["cTune", "2"], " ", 
+         SuperscriptBox["r", "2"], " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "-", 
+        RowBox[{
+         SuperscriptBox["cTune", "2"], " ", 
+         SuperscriptBox["L", "2"], " ", 
+         SuperscriptBox["\[Omega]", "4"]}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["\[Omega]", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "L"}], "+", 
+          RowBox[{"cTune", " ", 
+           SuperscriptBox["r", "2"]}], "+", 
+          RowBox[{"cTune", " ", 
+           SuperscriptBox["L", "2"], " ", 
+           SuperscriptBox["\[Omega]", "2"]}]}], ")"}]}], ")"}]}]}], "}"}], 
+   "}"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6452859531319895`*^9, 3.645285953490805*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"cMatch", "\[Rule]", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       RowBox[{"2", " ", "cTune", " ", "L", " ", 
+        SuperscriptBox["\[Omega]", "2"]}], "-", 
+       RowBox[{
+        SuperscriptBox["cTune", "2"], " ", 
+        SuperscriptBox["r", "2"], " ", 
+        SuperscriptBox["\[Omega]", "2"]}], "-", 
+       RowBox[{
+        SuperscriptBox["cTune", "2"], " ", 
+        SuperscriptBox["L", "2"], " ", 
+        SuperscriptBox["\[Omega]", "4"]}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "L"}], "+", 
+         RowBox[{"cTune", " ", 
+          SuperscriptBox["r", "2"]}], "+", 
+         RowBox[{"cTune", " ", 
+          SuperscriptBox["L", "2"], " ", 
+          SuperscriptBox["\[Omega]", "2"]}]}], ")"}]}], ")"}]}]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6452859549884725`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "none", " ", "of", " ", "the", " ", "following", " ", "is", " ", 
+     "actually", " ", "necessary", " ", "to", " ", "solve", " ", "our", " ", 
+     "problem", " ", "in", " ", "a", " ", "numerical"}], ",", " ", 
+    RowBox[{"straight", " ", "forward", " ", 
+     RowBox[{"way", "."}]}]}], "  ", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"CMatch", "[", "ctune_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"2", " ", "ctune", " ", "L", " ", 
+       RowBox[{"\[Omega]", "^", "2"}]}], "-", 
+      RowBox[{
+       RowBox[{"ctune", "^", "2"}], " ", 
+       RowBox[{"r", "^", "2"}], " ", 
+       RowBox[{"\[Omega]", "^", "2"}]}], "-", 
+      RowBox[{
+       RowBox[{"ctune", "^", "2"}], " ", 
+       RowBox[{"L", "^", "2"}], " ", 
+       RowBox[{"\[Omega]", "^", "4"}]}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Omega]", "^", "2"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "L"}], "+", 
+        RowBox[{"ctune", " ", 
+         RowBox[{"r", "^", "2"}]}], "+", 
+        RowBox[{"ctune", " ", 
+         RowBox[{"L", "^", "2"}], " ", 
+         RowBox[{"\[Omega]", "^", "2"}]}]}], ")"}]}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.645285958139814*^9, 3.645286035098067*^9}, {
+  3.645286155707079*^9, 3.6452862342566032`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.645285946080473*^9, 3.6452859490446053`*^9}}]
+},
+WindowSize->{1482, 982},
+WindowMargins->{{Automatic, 35}, {Automatic, 12}},
+PrintingCopies->1,
+PrintingPageRange->{32000, 32000},
+PrintingOptions->{"Magnification"->1.,
+"PaperOrientation"->"Portrait",
+"PaperSize"->{612, 792}},
+Magnification->1.5,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 747, 13, 45, "Input"],
+Cell[CellGroupData[{
+Cell[1329, 37, 859, 23, 75, "Input"],
+Cell[2191, 62, 274, 7, 77, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2502, 74, 506, 12, 75, "Input"],
+Cell[3011, 88, 391, 11, 77, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3439, 104, 339, 7, 75, "Input"],
+Cell[3781, 113, 3118, 97, 126, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6936, 215, 4220, 119, 445, "Input"],
+Cell[11159, 336, 1107, 35, 94, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12303, 376, 2144, 67, 166, InheritFromParent],
+Cell[14450, 445, 1908, 62, 98, "Output"]
+}, Open  ]],
+Cell[16373, 510, 1183, 34, 120, InheritFromParent],
+Cell[17559, 546, 114, 2, 45, "Input"],
+Cell[17676, 550, 94, 1, 45, InheritFromParent],
+Cell[17773, 553, 548, 10, 104, InheritFromParent],
+Cell[CellGroupData[{
+Cell[18346, 567, 822, 18, 249, InheritFromParent],
+Cell[19171, 587, 1373, 37, 83, "Output"]
+}, Open  ]],
+Cell[20559, 627, 1653, 42, 139, "Input"],
+Cell[CellGroupData[{
+Cell[22237, 673, 429, 9, 220, InheritFromParent],
+Cell[22669, 684, 3138, 88, 143, "Output"]
+}, Open  ]],
+Cell[25822, 775, 96, 1, 45, "Input"],
+Cell[CellGroupData[{
+Cell[25943, 780, 1324, 31, 336, "Input"],
+Cell[27270, 813, 2122, 60, 82, "Output"]
+}, Open  ]],
+Cell[29407, 876, 2375, 63, 386, "Input"],
+Cell[31785, 941, 964, 24, 220, "Input"],
+Cell[CellGroupData[{
+Cell[32774, 969, 1141, 32, 178, InheritFromParent],
+Cell[33918, 1003, 1005, 30, 80, "Output"]
+}, Open  ]],
+Cell[34938, 1036, 1483, 39, 162, "Input"],
+Cell[36424, 1077, 94, 1, 45, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
