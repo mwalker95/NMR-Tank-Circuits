@@ -4,12 +4,11 @@ import sys
 import math
 
 
-
 def main():
     w = float (input("input frequency in MHz: "))
-    z = float (input("input initial impedence: "))
+    z = float (input("input transmission line impedence: "))
     l = float (input("input inductance in uH: "))
-    r = float (input("input internal resistance in Ohm: "))
+    r = float (input("input coil resistance in Ohm: "))
     w = w*1e6
     l = l*1e-6
     cTune = (l*w*w*z - math.sqrt(r*z*math.pow(l*w*w,2) + math.pow(r,3)*w*w*z - math.pow(r*w*z,2)))/(math.pow(l*w*w,2)*z + z*math.pow(r*w,2))
