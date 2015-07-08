@@ -1,0 +1,218 @@
+%% AMS-LaTeX Created by Wolfram Mathematica 9.0 : www.wolfram.com
+
+\documentclass{article}
+\usepackage{amsmath, amssymb, graphics, setspace}
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+\newcounter{mathematicapage}
+\begin{document}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{Clear}[\text{cMatch}, \text{cTune}, \text{zParallel}, \text{zSeries}, Z, L, r, \omega , f, \text{zGood}, \text{reZ}, \text{imZ},
+\text{z0}];}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{zParallel} = ( 1/(I*\omega *L+r) + 1/(-I/(\omega *\text{cTune}))\text{  }){}^{\wedge}(-1)}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\frac{1}{i \text{cTune} \omega +\frac{1}{r+i L \omega }}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{Z = \text{zParallel} + -I / (\omega *\text{cMatch})}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(-\frac{i}{\text{cMatch} \omega }+\frac{1}{i \text{cTune} \omega +\frac{1}{r+i L \omega }}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{zGood} = \text{ComplexExpand}[Z]}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(r\left/\left(\left(r^2+L^2 \omega ^2\right) \left(\frac{r^2}{\left(r^2+L^2 \omega ^2\right)^2}+\left(\text{cTune} \omega -\frac{L \omega
+}{r^2+L^2 \omega ^2}\right)^2\right)\right)\right.+i \left(-\frac{1}{\text{cMatch} \omega }-\frac{\text{cTune} \omega }{\frac{r^2}{\left(r^2+L^2
+\omega ^2\right)^2}+\left(\text{cTune} \omega -\frac{L \omega }{r^2+L^2 \omega ^2}\right)^2}+(L \omega )\left/\left(\left(r^2+L^2 \omega ^2\right)
+\left(\frac{r^2}{\left(r^2+L^2 \omega ^2\right)^2}+\left(\text{cTune} \omega -\frac{L \omega }{r^2+L^2 \omega ^2}\right)^2\right)\right)\right.\right)\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{reZ} = r\left/\left(\left(r^2+L^2 \omega ^2\right) \left(\frac{r^2}{\left(r^2+L^2 \omega ^2\right)^2}+\left(\text{cTune} \omega
+-\frac{L \omega }{r^2+L^2 \omega ^2}\right)^2\right)\right)\right.}\\
+\pmb{}\\
+\pmb{\text{imZ} = \left(-\frac{1}{\text{cMatch} \omega }-\frac{\text{cTune} \omega }{\frac{r^2}{\left(r^2+L^2 \omega ^2\right)^2}+\left(\text{cTune}
+\omega -\frac{L \omega }{r^2+L^2 \omega ^2}\right)^2}+(L \omega )\left/\left(\left(r^2+L^2 \omega ^2\right) \left(\frac{r^2}{\left(r^2+L^2 \omega
+^2\right)^2}+\left(\text{cTune} \omega -\frac{L \omega }{r^2+L^2 \omega ^2}\right)^2\right)\right)\right.\right)}\\
+\pmb{}\\
+\pmb{\text{(*} \text{but} \text{hey} - \text{since} \text{we} \text{have} \text{to} \text{enforce} \text{imZ} == 0, }\\
+\pmb{\text{it} \text{is} \text{fruitful} \text{to} \text{express} \text{imZ} \text{as} a \text{rational} \text{function} \text{with} a \text{common}
+\text{denominator}. }\\
+\pmb{\text{*)}}\\
+\pmb{}\\
+\pmb{}\\
+\pmb{}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(r\left/\left(\left(r^2+L^2 \omega ^2\right) \left(\frac{r^2}{\left(r^2+L^2 \omega ^2\right)^2}+\left(\text{cTune} \omega -\frac{L \omega
+}{r^2+L^2 \omega ^2}\right)^2\right)\right)\right.\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{-\frac{1}{\text{cMatch} \omega }-\frac{\text{cTune} \omega }{\frac{r^2}{\left(r^2+L^2 \omega ^2\right)^2}+\left(\text{cTune} \omega
+-\frac{L \omega }{r^2+L^2 \omega ^2}\right)^2}+(L \omega )\left/\left(\left(r^2+L^2 \omega ^2\right) \left(\frac{r^2}{\left(r^2+L^2 \omega ^2\right)^2}+\left(\text{cTune}
+\omega -\frac{L \omega }{r^2+L^2 \omega ^2}\right)^2\right)\right)\right.}\\
+\pmb{}\\
+\pmb{\text{Solve}[\text{imZ} == 0, \text{cMatch}]}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(-\frac{1}{\text{cMatch} \omega }-\frac{\text{cTune} \omega }{\frac{r^2}{\left(r^2+L^2 \omega ^2\right)^2}+\left(\text{cTune} \omega -\frac{L
+\omega }{r^2+L^2 \omega ^2}\right)^2}+(L \omega )\left/\left(\left(r^2+L^2 \omega ^2\right) \left(\frac{r^2}{\left(r^2+L^2 \omega ^2\right)^2}+\left(\text{cTune}
+\omega -\frac{L \omega }{r^2+L^2 \omega ^2}\right)^2\right)\right)\right.\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\left\{\left\{\text{cMatch}\to \left(-1+2 \text{cTune} L \omega ^2-\text{cTune}^2 r^2 \omega ^2-\text{cTune}^2 L^2 \omega ^4\right)/\left(\omega
+^2 \left(-L+\text{cTune} r^2+\text{cTune} L^2 \omega ^2\right)\right)\right\}\right\}\text{  }}\\
+\pmb{\text{(*} \text{this} \text{expression}: \text{true} \text{when} \text{tuned} \text{and} \text{matched} \text{*)}}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\\
+\pmb{\text{(*}\text{use} \text{built} \text{in} \text{Together}[] \text{to} \text{obtain} \text{an} \text{alternative} \text{expression} \text{for}
+\text{imZ} \text{...}\text{*)}}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{otherImZ} = \text{Together}[\text{imZ}]}\\
+\pmb{}\\
+\pmb{}\\
+\pmb{\text{(*} }\\
+\pmb{== \text{imZ} \text{all} \text{the} \text{time}.\text{  }\text{when} \text{imZ} == 0 , \text{the} \text{numeator} \text{has} \text{to} \text{also}
+\text{vanish} \text{...} }\\
+\pmb{\text{*)}}\\
+\pmb{}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\left(-1+\text{cMatch} L \omega ^2+2 \text{cTune} L \omega ^2-\text{cMatch} \text{cTune} r^2 \omega ^2-\text{cTune}^2 r^2 \omega ^2-\text{cMatch}
+\text{cTune} L^2 \omega ^4-\text{cTune}^2 L^2 \omega ^4\right)/\left(\text{cMatch} \omega  \left(1-2 \text{cTune} L \omega ^2+\text{cTune}^2 r^2
+\omega ^2+\text{cTune}^2 L^2 \omega ^4\right)\right)\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\\
+\pmb{\text{imZNumerator}= -1+\text{cMatch} L \omega ^2+2 \text{cTune} L \omega ^2-\text{cMatch} \text{cTune} r^2 \omega ^2-\text{cTune}^2 r^2 \omega
+^2-\text{cMatch} \text{cTune} L^2 \omega ^4-\text{cTune}^2 L^2 \omega ^4;}\\
+\pmb{\text{imZDenominator} = \text{cMatch} \omega  \left(1-2 \text{cTune} L \omega ^2+\text{cTune}^2 r^2 \omega ^2+\text{cTune}^2 L^2 \omega ^4\right);}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\\
+\pmb{}\\
+\pmb{}\\
+\pmb{\text{(*} \text{try} }\\
+\pmb{\text{*)}}\\
+\pmb{\text{Solve}[\text{imZNumerator} == 0, \text{cTune}]}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\left\{\left\{\text{cTune}\to \frac{1}{2 \left(r^2 \omega ^2+L^2 \omega ^4\right)}\left(2 L \omega ^2-\text{cMatch} r^2 \omega ^2-\text{cMatch}
+L^2 \omega ^4-\sqrt{-4 r^2 \omega ^2+\text{cMatch}^2 r^4 \omega ^4+2 \text{cMatch}^2 L^2 r^2 \omega ^6+\text{cMatch}^2 L^4 \omega ^8}\right)\right\},\left\{\text{cTune}\to
+\frac{1}{2 \left(r^2 \omega ^2+L^2 \omega ^4\right)}\left(2 L \omega ^2-\text{cMatch} r^2 \omega ^2-\text{cMatch} L^2 \omega ^4+\sqrt{-4 r^2 \omega
+^2+\text{cMatch}^2 r^4 \omega ^4+2 \text{cMatch}^2 L^2 r^2 \omega ^6+\text{cMatch}^2 L^4 \omega ^8}\right)\right\}\right\}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{(*} }\\
+\pmb{\text{$\quad $      }}\\
+\pmb{\text{equation} 1: \text{enforce} \text{real} \text{part} \text{of} \text{impedance} \text{is} \text{the} \text{characteristic} \text{impedance}
+\text{of} \text{the} \text{transmission} \text{line} \text{z0} = }\\
+\pmb{50 \text{ohms} }\\
+\pmb{\text{*)}}\\
+\pmb{}\\
+\pmb{\text{Solve}[\text{reZ} == \text{z0}, \text{cTune}]}\\
+\pmb{}\\
+\pmb{\text{(*}}\\
+\pmb{r \text{amnd} L \text{are} \text{measured} \text{properties} \text{of} \text{the} \text{coil}, \omega  \text{is} \text{known} \text{by} \text{experimenter},
+\text{and} \text{z0} \text{is} 50 \text{ohms} \text{in} \text{our} \text{case}.}\\
+\pmb{\text{*)}}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\left\{\left\{\text{cTune}\to \left(L \text{z0} \omega ^2-\surd \left(r^3 \text{z0} \omega ^2-r^2 \text{z0}^2 \omega ^2+L^2 r \text{z0}
+\omega ^4\right)\right)/\left(r^2 \text{z0} \omega ^2+L^2 \text{z0} \omega ^4\right)\right\},\left\{\text{cTune}\to \left(L \text{z0} \omega ^2+\surd
+\left(r^3 \text{z0} \omega ^2-r^2 \text{z0}^2 \omega ^2+L^2 r \text{z0} \omega ^4\right)\right)/\left(r^2 \text{z0} \omega ^2+L^2 \text{z0} \omega
+^4\right)\right\}\right\}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\\
+\pmb{\text{(*}}\\
+\pmb{\text{the} \text{quadratic} \text{yields} \text{two} \text{possible} \text{values} \text{for} \text{cTune}, \text{one} \text{of} \text{which}
+\text{will} \text{result} \text{in} a \text{contradiction}}\\
+\pmb{\text{*)}}\\
+\pmb{}\\
+\pmb{\text{cTunePlus} = \left(L \text{z0} \omega ^2+\sqrt{r^3 \text{z0} \omega ^2-r^2 \text{z0}^2 \omega ^2+L^2 r \text{z0} \omega ^4}\right)/\left(r^2
+\text{z0} \omega ^2+L^2 \text{z0} \omega ^4\right)}\\
+\pmb{}\\
+\pmb{}\\
+\pmb{\text{cTuneMinus} =\text{  }\left(L \text{z0} \omega ^2-\sqrt{r^3 \text{z0} \omega ^2-r^2 \text{z0}^2 \omega ^2+L^2 r \text{z0} \omega ^4}\right)/\left(r^2
+\text{z0} \omega ^2+L^2 \text{z0} \omega ^4\right) }\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\\
+\pmb{\text{(*} \text{equation} 2: \text{no} \text{imaginary} \text{part}.}\\
+\pmb{\text{*)}}\\
+\pmb{\text{Solve}[\text{imZ} == 0, \text{cMatch}]}\\
+\pmb{\text{(*} \text{its} \text{okay} \text{to} \text{stop} \text{at} \text{this} \text{point} \text{technically}, \text{because} \text{cTune} \text{is}
+\text{determined} \text{by} \text{equation} 1.}\\
+\pmb{\text{*)}}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\left\{\left\{\text{cMatch}\to \left(-1+2 \text{cTune} L \omega ^2-\text{cTune}^2 r^2 \omega ^2-\text{cTune}^2 L^2 \omega ^4\right)/\left(\omega
+^2 \left(-L+\text{cTune} r^2+\text{cTune} L^2 \omega ^2\right)\right)\right\}\right\}}\\
+\pmb{}\\
+\pmb{}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\left\{\left\{\text{cMatch}\to \left(-1+2 \text{cTune} L \omega ^2-\text{cTune}^2 r^2 \omega ^2-\text{cTune}^2 L^2 \omega ^4\right)/\left(\omega
+^2 \left(-L+\text{cTune} r^2+\text{cTune} L^2 \omega ^2\right)\right)\right\}\right\}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\\
+\pmb{\text{(*} \text{none} \text{of} \text{the} \text{following} \text{is} \text{actually} \text{necessary} \text{to} \text{solve} \text{our} \text{problem}
+\text{in} a \text{numerical}, \text{straight} \text{forward} \text{way}.\text{  }}\\
+\pmb{\text{*)}}\\
+\pmb{}\\
+\pmb{\text{CMatch}[\text{ctune$\_$}]\text{:=}(-1+2 \text{ctune} L \omega {}^{\wedge}2-\text{ctune}{}^{\wedge}2 r{}^{\wedge}2 \omega {}^{\wedge}2-\text{ctune}{}^{\wedge}2
+L{}^{\wedge}2 \omega {}^{\wedge}4)/(\omega {}^{\wedge}2 (-L+\text{ctune} r{}^{\wedge}2+\text{ctune} L{}^{\wedge}2 \omega {}^{\wedge}2))}\)
+\end{doublespace}
+
+\begin{doublespace}
+\noindent\(\pmb{\text{}}\)
+\end{doublespace}
+
+\end{document}
