@@ -1,16 +1,11 @@
 NMR-Tank-Circuits
 =================
 
-#####NMR Tank Circuits#####
+example:
 
-#####Altoidnerd 2014#####
+    >>> from capMatch import *
+    >>> for i in range(30,100,1):
+            inductance = i*10e-6
+    ...     print(c_tune(167000,inductance,50,15)
 
-Just copy and paste the contents of main into a mathematica notebook and execute. The outputs are the two values of capacitance that satisfy
 
-Re{Z} = Z0
-
-Im{Z} = 0
-
-Enjoy.
-
-Donations: 13xdMqkaVKkHKT3ZZx5ikAvQUEkzqpDkDb
