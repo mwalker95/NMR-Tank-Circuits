@@ -2,8 +2,10 @@
 
 import sys
 import math
+import matplotlib.pyplot as plts
 
-class TankCircuit:
+
+class TankCircuit():
 	
 	def __init__(self):
 		self.internalI = 50 #Ohms
@@ -49,5 +51,9 @@ class TankCircuit:
 		print("Frequency: ", self.w)
 		print("Match Cap: ", self.matchCap(), " Tune Cap: ", self.tuneCap())
 
+	
 
+		
+		
+		
 
