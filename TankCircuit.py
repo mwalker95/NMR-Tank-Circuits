@@ -1,34 +1,34 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import sys
 import math
-import matplotlib.pyplot as plts
 
 
 class TankCircuit():
 	
 	def __init__(self):
-		self.internalI = 50 #Ohms
+		self.transmissionI = 50 #Ohms
 	
-	def __init__( self, internalI, coilR, coilL, w):
-		self.internalI = internalI #Ohms
+	def __init__( self, transmissionI, coilR, coilL, f):
+		self.transmissionI = transmissionI #Ohms
 		self.coilR = coilR #Ohms
-		self.coilL = coilL #Henrys
-		self.w = w #Hz
+		self.coilL = coilL/1e6 #micro Henrys
+		self.w = (f*2*math.pi)*1e6 #MHz
 
 
 	def setCoilR(self, coilR):
 		self.coilR = coilR #Ohms
 
 	def setCoilL(self, coilL):
-		self.coilL = coilL #Henrys
+		self.coilL = coilL/1e6 #micro Henrys
 	
-	def setW(self, w):
-		self.w = w #Hz
+	def setW(self, f):
+		self.w = (f*2*math.pi)*1e6 #MHz
+
 
 	def tuneCap(self):
 		w = self.w
-		z = self.internalI
+		z = self.transmissionI
 		l = self.coilL
 		r = self.coilR
 
@@ -37,7 +37,7 @@ class TankCircuit():
 
 	def matchCap(self):
 		w = self.w
-		z = self.internalI
+		z = self.transmissionI
 		l = self.coilL
 		r = self.coilR
 		cTune = self.tuneCap()
@@ -47,9 +47,9 @@ class TankCircuit():
 
 
 	def printAbout(self):
-		print("Coil: r = ", self.coilR, " L = ", self.coilL)
-		print("Frequency: ", self.w)
-		print("Match Cap: ", self.matchCap(), " Tune Cap: ", self.tuneCap())
+		print("Coil: r(Ohms) = ", self.coilR, " L(uHenrys) = ", self.coilL*1e6)
+		print("Frequency(MHz): ", (self.w/(2*math.pi))*1e-6)
+		print("Match Cap(pico Farad): ", self.matchCap()*1e12, " Tune Cap(pico Farad): ", self.tuneCap()*1e12)
 
 	
 

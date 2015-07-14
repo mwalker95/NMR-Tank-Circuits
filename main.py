@@ -1,16 +1,16 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import sys
 import math
 import TankCircuit
-import FrequencyPlotter
+#import FrequencyPlotter
 
-#tankCircuit = TankCircuit.TankCircuit()
+circuit = TankCircuit.TankCircuit(50,7,26,20)
 
 def main():
-	circuit = TankCircuit.TankCircuit(50,7,26e-6,20e6)
+
 	circuit.printAbout()
-	plot = FrequencyPlotter.FrequencyPlotter(circuit, 6, 1e6, 3e6)
-	plot.plot()
+#	plot = FrequencyPlotter.FrequencyPlotter(circuit, 6, 1e6, 3e6)
+#	plot.plot()
 main()
 
