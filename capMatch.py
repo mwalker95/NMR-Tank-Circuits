@@ -3,13 +3,15 @@
 import sys
 import math
 
-def c_tune(w,l,z,r):
-    c = (l*w*w*z - math.sqrt(r*z*math.pow(l*w*w,2) + math.pow(r,3)*w*w*z - math.pow(r*w*z,2)))/(math.pow(l*w*w,2)*z + z*math.pow(r*w,2))
-    return c
+def c_tune(f,z,L,r):
+    w = f*1e6*2*math.pi
+    l = L*1e-6
+    return (l*w*w*z - math.sqrt(r*z*math.pow(l*w*w,2) + math.pow(r,3)*w*w*z - math.pow(r*w*z,2)))/(math.pow(l*w*w,2)*z + z*math.pow(r*w,2))
 
-def c_match(w,l,z,r):
-    c = (-1+2*c_tune(w,l,z,r)*l*w*w - math.pow(c_tune(w,l,z,r)*r*w,2) - math.pow(c_tune(w,l,z,r)*l*w*w,2))/    (w*w*(-l + c_tune(w,l,z,r)*r*r + c_tune(w,l,z,r)*math.pow(l*w,2))) 
-    return c
+def c_match(f,z,L,r):
+    w = f*1e6*2*math.pi
+    l = L*1e-6
+    return (-1+2*c_tune(w,l,z,r)*l*w*w - math.pow(c_tune(w,l,z,r)*r*w,2) - math.pow(c_tune(w,l,z,r)*l*w*w,2))/    (w*w*(-l + c_tune(w,l,z,r)*r*r + c_tune(w,l,z,r)*math.pow(l*w,2))) 
 
 
 def main():
