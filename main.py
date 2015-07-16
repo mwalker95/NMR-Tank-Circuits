@@ -5,12 +5,12 @@ import math
 import TankCircuit
 #import FrequencyPlotter
 
-circuit = TankCircuit.TankCircuit(50,7,26,20)
 
 def main():
 
+	circuit = TankCircuit.TankCircuit(1.68, 50, 97.7, 17.8)
 	circuit.printAbout()
-#	plot = FrequencyPlotter.FrequencyPlotter(circuit, 6, 1e6, 3e6)
-#	plot.plot()
+	plot = FrequencyPlotter.FrequencyPlotter(circuit, 100, 1e6, 3e6)
+	plot.plot()
 main()
 

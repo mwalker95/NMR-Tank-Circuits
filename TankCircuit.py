@@ -9,7 +9,7 @@ class TankCircuit():
 	def __init__(self):
 		self.transmissionI = 50 #Ohms
 	
-	def __init__( self, transmissionI, coilR, coilL, f):
+	def __init__(self, f, transmissionI, coilL, coilR):
 		self.transmissionI = transmissionI #Ohms
 		self.coilR = coilR #Ohms
 		self.coilL = coilL/1e6 #micro Henrys
